@@ -31,28 +31,61 @@
 
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
+    const res1 = inventors.filter(i => i.year >= 1500 && i.year < 1600);
+    console.table(res1);
 
     // Array.prototype.map()
     // 2. Give us an array of the inventors first and last names
+    const res2 = inventors.map(i => i.first + ' ' + i.last);
+    console.log(res2);
 
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
+    const res3 = inventors.sort((a, b) => a.year - b.year);
+    console.table(res3);
 
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live all together?
+    const res4 = inventors.reduce((acc, cur) => acc + cur.passed - cur.year, 0);
+    console.log(res4);
 
     // 5. Sort the inventors by years lived
+    const res5 = inventors.sort((a, b) => (b.passed - b.year) - (a.passed - a.year));
+    console.table(res5);
 
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
 
+    /*
+    const listItems = document.querySelectorAll('.mw-category-group ul li');
+    const names = Array.from(listItems).map(i => i.textContent);
+    const deNames = names.filter(n => n.includes('de'));
+    console.log(deNames);
+    */
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
+    const res7 = people.sort((a, b) => {
+      const lastA = a.split(',')[0].toUpperCase();
+      const lastB = b.split(',')[0].toUpperCase();
+      if(lastA < lastB) return -1;
+      if(lastA > lastB) return 1;
+      return 0;
+    });
+    console.log(res7);
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+
+    const res8 = data.reduce((acc, cur) => {
+      if(acc[cur] === undefined){
+        acc[cur] = 0;
+      }
+      acc[cur]++;
+      return acc;
+    }, {});
+    console.log(res8);
 
   </script>
 </body>
