@@ -3,17 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <title>HTML5 Canvas</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-<canvas id="draw" width="800" height="800"></canvas>
-<script>
-</script>
+<body class="dark">
 
-<style>
-  html, body {
-    margin: 0;
-  }
-</style>
+  <div class="help-wrapper">
+    <div class="help">
+      <p>Here's some help to get you started:</p>
+      <p>Press and hold LMB to draw!</p>
+      <p>Scroll = Change line width</p>
+      <p>Q = Toggle dark mode<br>(not recommended at night)</p>
+      <p>D = Download your painting!</p>
+    </div>
+  </div>
+
+  <canvas id="draw" width="800" height="800"></canvas>
+
+  <canvas id="cursor" width="800" height="800"></canvas>
+
+  <script src="script.js"></script>
 
 </body>
 </html>
