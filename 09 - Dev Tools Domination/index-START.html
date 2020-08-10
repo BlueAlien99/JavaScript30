@@ -18,28 +18,65 @@
     }
 
     // Regular
+    console.log('Logs are fun!');
 
     // Interpolated
+    console.log('%s are %s!', '🍉', '🚰');
 
     // Styled
+    console.log('%cThat is even more fun!', 'font-size: 16px; color: cornflowerblue; text-shadow: 4px 4px 2px slategray');
 
     // warning!
+    console.warn('Be careful!');
 
     // Error :|
+    console.error('Oh no!');
 
     // Info
+    console.info('Did you know that...?');
 
     // Testing
+    const p = document.querySelector('p');
+    console.assert(p.classList.contains('xd'), 'Wrong paragraph!');
 
     // clearing
+    console.clear();
 
     // Viewing DOM Elements
+    console.log(p);
+    console.dir(p);
 
     // Grouping together
+    dogs.forEach(d => {
+      console.group(d.name);
+      console.log(`This is ${d.name}.`);
+      console.log(`${d.name} is ${d.age} years old.`);
+      console.log(`I really like ${d.name}.`);
+      console.groupEnd(d.name);
+    });
+
+    console.clear();
 
     // counting
+    console.count('xd');
+    console.count('xd');
+    console.count('lol');
+    console.count('xd');
+    console.count('lol');
+    console.count('omg');
+    console.count('omg');
+    console.count('xd');
+
+    console.clear();
 
     // timing
+    console.time('fetching data');
+    fetch('https://api.github.com/users/bluealien99')
+      .then(d => d.json())
+      .then(d => {
+        console.timeEnd('fetching data');
+        console.log(d);
+      });
 
   </script>
 </body>
