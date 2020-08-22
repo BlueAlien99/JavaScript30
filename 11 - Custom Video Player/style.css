@@ -31,6 +31,9 @@ body {
 .player:fullscreen {
   max-width: none;
   width: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  align-items: center;
 }
 
 .player:-webkit-full-screen {
