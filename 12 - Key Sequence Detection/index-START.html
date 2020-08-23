@@ -7,6 +7,20 @@
 </head>
 <body>
 <script>
+
+  const code = 'dnstuff';
+  const keypressHistory = [];
+
+  window.addEventListener('keyup', e => {
+    keypressHistory.push(e.key);
+    keypressHistory.splice(0, keypressHistory.length - code.length);
+    console.log(keypressHistory);
+    if(keypressHistory.join('') === code){
+      console.log('%cDUKE NUKEM 3D', 'font-weight: bold; color: orangered;');
+      cornify_add();
+    }
+  });
+
 </script>
 </body>
 </html>
