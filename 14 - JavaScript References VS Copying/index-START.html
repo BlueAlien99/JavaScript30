@@ -8,15 +8,30 @@
 
   <script>
     // start with strings, numbers and booleans
+    let num = 100;
+    let num2 = num;
+    console.log(num, num2);
+    num = 200;
+    console.log(num, num2);
+
+    let str = 'blue';
+    let str2 = str;
+    console.log(str, str2);
+    str2 = 'alien';
+    console.log(str, str2);
 
     // Let's say we have an array
     const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
 
     // and we want to make a copy of it.
+    const players2 = players;
+    console.log(players, players2);
 
     // You might think we can just do something like this:
+    // players2[2] = 'BlueAlien';
 
     // however what happens when we update that array?
+    // console.log(players, players2);
 
     // now here is the problem!
 
@@ -25,14 +40,29 @@
     // Why? It's because that is an array reference, not an array copy. They both point to the same array!
 
     // So, how do we fix this? We take a copy instead!
+    const players3 = players.slice();
+    players3[2] = 'BlueAlien';
+    console.log(players, players3);
 
     // one way
 
     // or create a new array and concat the old one in
+    const players4 = [].concat(players);
+    players4[2] = 'BlueAlien';
+    console.log(players, players4);
 
     // or use the new ES6 Spread
+    const players5 = [...players];
+    players5[2] = 'BlueAlien';
+    console.log(players, players5);
+
+    const players6 = Array.from(players);
+    players6[2] = 'BlueAlien';
+    console.log(players, players6);
 
     // now when we update it, the original one isn't changed
+
+    console.clear();
 
     // The same thing goes for objects, let's say we have a person object
 
@@ -43,10 +73,18 @@
     };
 
     // and think we make a copy:
+    const person2 = person;
+    // person2.number = 99;
+    console.log(person, person2);
 
     // how do we take a copy instead?
+    const person3 = Object.assign({}, person, { number: 99, age: 20 });
+    console.log(person, person3);
 
     // We will hopefully soon see the object ...spread
+    const person4 = {...person};
+    person4.number = 99;
+    console.log(person, person4);
 
     // Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
 
