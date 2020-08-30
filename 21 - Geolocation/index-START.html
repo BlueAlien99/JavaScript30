@@ -58,7 +58,19 @@
     }
     /*Compass: https://thenounproject.com/search/?q=compass&i=592352*/
   </style>
+
   <script>
+    const arrow = document.querySelector('.arrow');
+    const speed = document.querySelector('.speed-value');
+
+    navigator.geolocation.watchPosition(data => {
+      speed.textContent = data.coords.speed.toFixed(2);
+      arrow.style.transform = `rotate(${data.coords.heading}deg)`;
+    }, err => {
+      console.error('No permission given to access geolocation data :(');
+      alert('Geolocation data access needed!');
+    });
+
   </script>
 </body>
 </html>
