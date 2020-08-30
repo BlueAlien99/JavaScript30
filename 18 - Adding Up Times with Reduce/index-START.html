@@ -181,7 +181,21 @@
       Video 58
     </li>
   </ul>
+
 <script>
+  const itemsNodes = document.querySelectorAll('[data-time]');
+  const items = [...itemsNodes];
+
+  const seconds = items.reduce((acc, cur) => {
+    const [mins, secs] = cur.dataset.time.split(':');
+    return acc + (mins * 60 + secs * 1);
+  }, 0);
+
+  const date = new Date(0);
+  date.setSeconds(seconds);
+  const timeStr = date.toISOString().slice(11, 19);
+  console.log(timeStr);
+
 </script>
 </body>
 </html>
