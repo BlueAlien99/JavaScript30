@@ -35,6 +35,31 @@
   </style>
 
 <script>
+  const area = document.querySelector('.hero');
+  const text = document.querySelector('.hero h1');
+  const walk = 100;
+
+  function doMagic(e){
+    const {offsetWidth: w, offsetHeight: h} = this;
+    let {offsetX: x, offsetY: y} = e;
+
+    if(this !== e.target){
+      x += e.target.offsetLeft;
+      y += e.target.offsetTop;
+    }
+
+    const walkX = Math.round(((w / 2) - x) / w * walk);
+    const walkY = Math.round(((h / 2) - y) / h * walk);
+
+    text.style.textShadow = `
+    ${walkX}px ${walkY}px 0 rgba(255, 0, 0, 0.4),
+    ${-walkX}px ${walkY}px 0 rgba(0, 255, 0, 0.4),
+    0px ${-walkY}px 0 rgba(0, 0, 255, 0.4)
+    `;
+  }
+
+  area.addEventListener('mousemove', doMagic);
+
 </script>
 </body>
 </html>
