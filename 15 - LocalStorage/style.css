@@ -62,12 +62,14 @@ h2 {
 }
 
 .plates input + label:before {
-  content: "⬜️";
+  content: "🔳";
   margin-right: 10px;
+  display: inline-block;
+  width: 16px;
 }
 
 .plates input:checked + label:before {
-  content: "🌮";
+  content: "🍕";
 }
 
 .add-items {
